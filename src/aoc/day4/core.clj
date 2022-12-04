@@ -20,13 +20,32 @@
     (map range-to-set)
     either-subset?))
 
+(defn count-trues
+  [acc i]
+  (if i (inc acc) acc))
+
 (defn solution-part-1
   []
-  (let [pairs (->> input
+  (let [overlaps (->> input
                 (str/split-lines)
                 (map find-overlaps)
-                (reduce (fn [acc i] (if i (inc acc) acc)) 0))]
-    (prn pairs)))
+                (reduce count-trues 0))]
+    (prn overlaps)))
+
+(defn intersects
+  [[first second]]
+  (< 0 (count (set/intersection first second))))
+
+(defn find-intersections
+  [line]
+  (->> (str/split line #",")
+    (map range-to-set)
+    intersects))
+
 (defn solution-part-2
   []
-  )
+  (let [intersections (->> input
+                        (str/split-lines)
+                        (map find-intersections)
+                        (reduce count-trues 0))]
+    (println intersections)))
