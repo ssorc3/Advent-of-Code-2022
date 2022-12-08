@@ -6,6 +6,7 @@
             [aoc.day5.core :as day5]
             [aoc.day6.core :as day6]
             [aoc.day7.core :as day7]
+            [aoc.day8.core :as day8]
             ))
 
 (defn -main
@@ -47,10 +48,16 @@
    (println "part 2")
    (day6/solution-part-2))
 
-  (println "------------- Day 6 -------------")
+  #_((println "------------- Day 7 -------------")
+   (println "part 1")
+   (day7/solution-part-1)
+   (println "part 2")
+   (day7/solution-part-2))
+
+  (println "------------- Day 8 -------------")
   (println "part 1")
-  (day7/solution-part-1)
+  (day8/solution-part-1)
   (println "part 2")
-  (day7/solution-part-2)
+  (day8/solution-part-2)
   )
 
